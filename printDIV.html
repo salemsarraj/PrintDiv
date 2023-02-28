@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</head>
+<body>
+
+	<div id="wantPrint">
+
+		<h1 style="color: blue">
+		Header
+		</h1>
+	
+		<pre>
+		test test test test test test test test test 
+		test test test 
+		test test test test test test 
+		test test test test test test test test 
+		test test test test 
+		test test test test test 
+		</pre>
+	
+		<img src="img.jpg" alt="Girl in a jacket" width="500" height="600">
+	
+		<ul>
+			<li>
+			1111111
+			</li>
+			<li>
+			2222222
+			</li>
+			<li>
+			3333333
+			</li>
+		</ul>
+	
+	</div>
+
+	<a onclick='Print("wantPrint")' style="padding: 8px; cursor: pointer; background: gray; color: white">Print The Div</a>
+	
+	<br />
+	<br />
+	<script>
+	
+	function Print(divId) {
+
+        var divContents = document.getElementById(divId).innerHTML;
+        var a = window.open('', 'PRINT', 'height=auto,width=auto');
+        a.document.write('<html>');
+        a.document.write('<head><link href="css/style.css" rel="stylesheet"/>');
+        a.document.write('<title>Print Title</title>');
+        a.document.write('</head>');
+        a.document.write('<body style="padding-top:20px">');
+        a.document.write(divContents);
+        a.document.write('\x3Cscript src="/_framework/aspnetcore-browser-refresh.js">\x3C/script> \x3C/body> \x3C/html>');
+        a.document.close();
+
+        setTimeout(() => {
+            a.print();
+            a.close();
+        }, 1000);
+
+
+    }
+	
+	</script>
+</body>
+</html>
